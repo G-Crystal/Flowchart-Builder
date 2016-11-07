@@ -86,4 +86,3 @@ jsPlumb Documentation: https://jsplumbtoolkit.com/community/doc/home.html
 ![Figure 1.0: Wireframe](https://lh4.googleusercontent.com/3Cg3ATISKD4uErs1Nb3-yYikevMWTNmeGaTNu94e37u6cDf-P4VNuWdVumS2FNxSiFt1s-qM-Rj4vp8=w2560-h1326-rw)
 
 
-
