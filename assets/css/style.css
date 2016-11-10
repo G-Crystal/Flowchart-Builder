@@ -178,11 +178,10 @@ cursor: col-resize;
     flex: 0 0 auto;
     /* only manually resize */
     padding: 10px 5px;
-    height: 150px;
+    min-height: 150px;
     width: 100%;
     white-space: nowrap;
-    background: #838383;
-    color: white;
+    background: #eee;
 }
 
 .splitter-horizontal {
@@ -197,4 +196,10 @@ cursor: col-resize;
     /* resizable */
     padding: 10px 5px;
     background: #eee;
+}
+
+.sidebar .sub-title {
+    font-size: 16px;
+    margin: 0 0 10px;
+    border-bottom: 1px solid #339933;
 }
