@@ -164,9 +164,29 @@ jsPlumb.ready(function () {
 
 });
 
+var _canvas_zoom = 1;
+
 $(document).ready(function() {
     $(".sidebar .panel-top").resizable({
         handleSelector: ".splitter-horizontal",
         resizeWidth: false
+    });
+
+    $(".jtk-demo-main").bind("wheel mousewheel", function(e) {
+        var delta;
+
+        if(e.originalEvent.wheelDelta != undefined)
+            delta = e.originalEvent.wheelDelta;
+        else
+            delta = e.originalEvent.deltaY * -1;
+
+        if(delta > 0) {
+            if(_canvas_zoom < 5) _canvas_zoom += 0.05;
+            $(".jtk-demo-canvas").css("transform", "scale(" + _canvas_zoom + ")");
+        }
+        else{
+            if(_canvas_zoom > 0.1) _canvas_zoom -= 0.05;
+            $(".jtk-demo-canvas").css("transform", "scale(" + _canvas_zoom + ")");
+        }
     });
 });
