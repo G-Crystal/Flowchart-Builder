@@ -2,104 +2,79 @@
 <html>
 <head>
 
-	<title>jsPlumb - Flowchart Builder</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>jsPlumb - Flowchart Builder</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
 
-	<!-- CDN includes -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <!-- CDN includes -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
-	<!-- jQuery UI -->
-	<link rel="stylesheet" href="lib/jQuery/css/jquery-ui.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="lib/jQuery/css/jquery-ui.min.css">
 
-	<!-- jsPlumbToolkit -->
-	<link rel="stylesheet" href="lib/jsPlumb/css/jsPlumbToolkit-defaults.css">
-	<link rel="stylesheet" href="lib/jsPlumb/css/jsPlumbToolkit.css">
+    <!-- jsPlumbToolkit -->
+    <link rel="stylesheet" href="lib/jsPlumb/css/jsPlumbToolkit-defaults.css">
+    <link rel="stylesheet" href="lib/jsPlumb/css/jsPlumbToolkit.css">
 
-	<!-- global CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+    <!-- global CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body data-demo-id="flowchart">
 
-	<div class="jtk-drawing-div">
-		<div class="jtk-demo-main">
-			<!-- demo -->
-			<div class="jtk-demo-canvas canvas-wide flowchart-demo jtk-surface jtk-surface-nopan" id="canvas">
-				<div class="window jtk-node" id="flowchartWindow1"><strong>1</strong><br/><br/></div>
-				<div class="window jtk-node" id="flowchartWindow2"><strong>2</strong><br/><br/></div>
-				<div class="window jtk-node" id="flowchartWindow3"><strong>3</strong><br/><br/></div>
-				<div class="window jtk-node" id="flowchartWindow4"><strong>4</strong><br/><br/></div>
-			</div>
-			<!-- /demo -->
-		</div>
+    <div class="jtk-drawing-div">
+        <div class="jtk-surface-canvas">
+            <div class="jtk-demo-main">
+                <!-- demo -->
+                <div class="jtk-demo-canvas canvas-wide flowchart-demo jtk-surface jtk-surface-nopan" id="canvas">
+                    <div class="window jtk-node" id="flowchartWindow1"><strong>1</strong><br/><br/></div>
+                    <div class="window jtk-node" id="flowchartWindow2"><strong>2</strong><br/><br/></div>
+                    <div class="window jtk-node" id="flowchartWindow3"><strong>3</strong><br/><br/></div>
+                    <div class="window jtk-node" id="flowchartWindow4"><strong>4</strong><br/><br/></div>
+                </div>
+            </div>
+            <!-- /demo -->
+        </div>
 
-		<div class="sidebar">
-			<div class="panel-container-vertical auto-scroll">
-	            <div class="panel-top">
-	            	<div class="sub-title">
-	            		Settings
-	            	</div>
-	            	<div class="sub-content">
-		                top panel
-		            </div>
-	            </div>
+        <div class="sidebar">
+            <div class="panel-container-vertical auto-scroll">
+                <div class="panel-top">
+                    <div class="sub-title">
+                        Settings
+                    </div>
+                    <div class="sub-content">
+                        top panel
+                    </div>
+                </div>
 
-	            <div class="splitter-horizontal">
-	            </div>
+                <div class="splitter-horizontal">
+                </div>
 
-	            <div class="panel-bottom auto-scroll">
-	            	<div class="sub-title">
-	            		Blocks
-	            	</div>
-	            	<div class="sub-content">
-		            	<ul>
-			                <li jtk-node-type="question" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
-			                    <i class="icon-tablet"></i>Question
-			                </li>
-			                <li jtk-node-type="action" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
-			                    <i class="icon-eye-open"></i>Action
-			                </li>
-			                <li jtk-node-type="output" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
-			                    <i class="icon-eye-open"></i>Output
-			                </li>
-			            </ul>
-			        </div>
-	            </div>
+                <div class="panel-bottom auto-scroll">
+                    <div class="sub-title">
+                        Blocks
+                    </div>
+                    <div class="sub-content">
+                        <ul>
+                            <li jtk-node-type="question" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
+                                <i class="icon-tablet"></i>Question
+                            </li>
+                            <li jtk-node-type="action" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
+                                <i class="icon-eye-open"></i>Action
+                            </li>
+                            <li jtk-node-type="output" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
+                                <i class="icon-eye-open"></i>Output
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
-<!--         <div id="panel">
-	        <div class="panel-container-vertical sidebar">
-
-	            <div class="panel-top resizeHeight">
-	                top panel
-	            </div>
-
-	            <div class="splitter-horizontal">
-	            </div>
-
-	            <div class="panel-bottom">
-	            	<ul>
-		                <li jtk-node-type="question" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
-		                    <i class="icon-tablet"></i>Question
-		                </li>
-		                <li jtk-node-type="action" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
-		                    <i class="icon-eye-open"></i>Action
-		                </li>
-		                <li jtk-node-type="output" title="Drag to add new" class="jtk-surface-droppable-node jtk-draggable">
-		                    <i class="icon-eye-open"></i>Output
-		                </li>
-		            </ul>
-	            </div>
-	        </div>
-		</div> -->
 
 </body>
 
@@ -152,17 +127,5 @@
 
 <!-- global -->
 <script type="text/javascript" src="assets/js/script.js"></script>
-
-<script type="text/javascript">
-    $(".panel-left").resizable({
-        handleSelector: ".splitter",
-        resizeHeight: false
-    });
-
-    $(".panel-top").resizable({
-        handleSelector: ".splitter-horizontal",
-        resizeWidth: false
-    });
-</script>
 
 </html>

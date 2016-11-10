@@ -163,3 +163,10 @@ jsPlumb.ready(function () {
     jsPlumb.fire("jsPlumbDemoLoaded", instance);
 
 });
+
+$(document).ready(function() {
+    $(".sidebar .panel-top").resizable({
+        handleSelector: ".splitter-horizontal",
+        resizeWidth: false
+    });
+});

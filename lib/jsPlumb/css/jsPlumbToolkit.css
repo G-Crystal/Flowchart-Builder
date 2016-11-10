@@ -26,13 +26,10 @@ body {
 .jtk-demo-main {
     background-color: transparent;
     font-family: Arial,sans-serif;
-    margin-left: auto;
-    margin-right: auto;
-    /*width: 90%;*/
-    width: calc(100% - 160px);
     max-width:1500px;
     position: relative;
-    /*margin-top:98px;*/
+    border: 1px solid #CCC;
+    height: 550px;
 }
 
 .jtk-demo-main .description {
@@ -41,6 +38,7 @@ body {
     padding: 13px;
     margin-bottom: 22px;
     background-color: #f4f5ef;
+    height: 550px;
 }
 
 .jtk-demo-main .description li {
@@ -48,11 +46,8 @@ body {
 }
 
 .jtk-demo-canvas {
-    margin-left: 160px;
-    height:550px;
-    max-height:700px;
-    border:1px solid #CCC;
-    background-color:white;
+    height: 2500px;
+    width: 2500px;
 }
 
 .canvas-wide {
