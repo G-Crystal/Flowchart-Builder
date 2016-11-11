@@ -165,6 +165,8 @@ jsPlumb.ready(function () {
 });
 
 var _canvas_zoom = 1;
+var _drag_x_diff = 0;
+var _drag_y_diff = 0;
 
 $(document).ready(function() {
     $(".sidebar .panel-top").resizable({
@@ -180,13 +182,66 @@ $(document).ready(function() {
         else
             delta = e.originalEvent.deltaY * -1;
 
+        var x_diff = (e.clientX - $('.jtk-demo-canvas').offset().left) * 100;
+        var y_diff = e.clientY - $('.jtk-demo-canvas').offset().top;
+
         if(delta > 0) {
-            if(_canvas_zoom < 5) _canvas_zoom += 0.05;
+            if(_canvas_zoom < 5) _canvas_zoom += 0.01;
             $(".jtk-demo-canvas").css("transform", "scale(" + _canvas_zoom + ")");
+            $(".jtk-demo-canvas").css("transform-origin", "0.2 0.2");
         }
         else{
-            if(_canvas_zoom > 0.1) _canvas_zoom -= 0.05;
+            if(_canvas_zoom > 0.1) _canvas_zoom -= 0.01;
             $(".jtk-demo-canvas").css("transform", "scale(" + _canvas_zoom + ")");
+            $(".jtk-demo-canvas").css("transform-origin", "0 0");
         }
+
+        canvasPosSetting($('.jtk-demo-main'), $('.jtk-demo-canvas'));
     });
+
+    /*$(".jtk-demo-canvas").draggable();
+
+    $(".jtk-demo-canvas").bind("drag", function() {
+        var obj = event.srcElement;
+
+        if(obj.offsetLeft > 0) obj.offsetLeft = 0;
+        if(obj.offsetTop > 0) obj.offsetTop = 0;
+    });*/
+
+    $('.jtk-demo-main').mousedown(function(e) {
+        drag = $('.jtk-demo-canvas').closest('.draggable')
+        drag.addClass('dragging')
+        drag.css('position', 'absolute');
+
+        _drag_x_diff = e.clientX + $(this).offset().left - $('.jtk-demo-canvas').offset().left;
+        _drag_y_diff = e.clientY + $(this).offset().top - $('.jtk-demo-canvas').offset().top;
+console.log(e.clientX + " - " + $(this).offset().left + " & " + e.clientY + " - " + $(this).offset().top + " : " + _drag_x_diff + ' / ' + _drag_y_diff);
+        
+        $(this).on('mousemove', function(e){
+            drag.css('left', (e.clientX - _drag_x_diff));
+            drag.css('top', (e.clientY - _drag_y_diff));
+console.log(e.clientX + " - " + _drag_x_diff + " & " + e.clientY + " - " + _drag_y_diff + " : " + drag.css('left') + ' / ' + drag.css('top'));
+
+            window.getSelection().removeAllRanges()
+
+            canvasPosSetting($('.jtk-demo-main'), $('.jtk-demo-canvas'));
+        })
+    })
+
+    $('.jtk-demo-main').mouseleave(stopDragging)
+    $('.jtk-demo-main').mouseup(stopDragging)
+
+    function stopDragging() {
+        drag = $('.jtk-demo-canvas').closest('.draggable')
+        drag.removeClass('dragging')
+        $(this).off('mousemove')
+    }
+
+    function canvasPosSetting(obj1, obj2) {
+        if($('.jtk-demo-canvas').offsetLeft > 0) $('.jtk-demo-canvas').offsetLeft = 0;
+        if($('.jtk-demo-canvas').offsetTop > 0) $('.jtk-demo-canvas').offsetTop = 0;
+        if($('.jtk-demo-canvas').clientWidth < $('.jtk-demo-main').clientWidth) $('.jtk-demo-canvas').clientWidth = $('.jtk-demo-main').clientWidth;
+        if($('.jtk-demo-canvas').clientHeight < $('.jtk-demo-main').clientHeight) $('.jtk-demo-canvas').clientHeight = $('.jtk-demo-main').clientHeight;
+    }
+
 });
