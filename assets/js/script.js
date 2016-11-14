@@ -182,18 +182,19 @@ $(document).ready(function() {
         else
             delta = e.originalEvent.deltaY * -1;
 
-        var x_diff = (e.clientX - $('.jtk-demo-canvas').offset().left) * 100;
-        var y_diff = e.clientY - $('.jtk-demo-canvas').offset().top;
+        var x_diff = (e.clientX - $('.jtk-demo-main').offset().left);
+        var y_diff = (e.clientY - $('.jtk-demo-main').offset().top);
+console.log(x_diff + " - " + y_diff);
+        $(".jtk-demo-canvas").css("transform-origin", '"' + x_diff + 'px ' + y_diff + 'px"');
+        // $(".jtk-demo-canvas").css("transform-origin", "100px 100px");
 
         if(delta > 0) {
             if(_canvas_zoom < 5) _canvas_zoom += 0.01;
             $(".jtk-demo-canvas").css("transform", "scale(" + _canvas_zoom + ")");
-            $(".jtk-demo-canvas").css("transform-origin", "0.2 0.2");
         }
         else{
             if(_canvas_zoom > 0.1) _canvas_zoom -= 0.01;
             $(".jtk-demo-canvas").css("transform", "scale(" + _canvas_zoom + ")");
-            $(".jtk-demo-canvas").css("transform-origin", "0 0");
         }
 
         canvasPosSetting($('.jtk-demo-main'), $('.jtk-demo-canvas'));
